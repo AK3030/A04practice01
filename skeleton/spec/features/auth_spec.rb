@@ -15,6 +15,7 @@ feature 'Sign up' do
   end
 
   it 'redirects to links index and displays user\'s username on success' do
+    save_and_open_page
     sign_up_as_ginger_baker
     # add user name to application.html.erb layout
     expect(page).to have_content 'ginger_baker'
@@ -30,7 +31,6 @@ feature 'Sign out' do
 
   it 'after logout, user is redirected to login form' do
     sign_up_as_ginger_baker
-
     click_button 'Sign Out'
 
     # redirect to login page

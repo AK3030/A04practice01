@@ -9,7 +9,18 @@
   </head>
 
   <body>
-    <%= current_user.username if logged_in? %>
+    <% if logged_in? %>
+    <%= current_user.username %>
+    <form class="" action= <%= session_url %> method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <label for="Sign Out">Sign Out</label>
+      <button id="Sign Out" type="Submit" name="button">Sign Out</button>
+
+    </form>
+    <% else  %>
+
+    <%end  %>
+
     <%= yield %>
   </body>
 </html>

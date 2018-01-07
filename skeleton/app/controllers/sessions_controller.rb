@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to links_url
     else
       flash[:errors] = 'invalid credential'
-      render :new
+      redirect_to new_session_url
     end
   end
 
@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(session_token: session[:session_token])
     @user.reset_session_token!
     session[:session_token] = nil
+    redirect_to new_session_url
   end
 
   private
