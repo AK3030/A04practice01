@@ -1,0 +1,13 @@
+<p>
+  <%= "Username: " + current_user.username %>
+</p>
+
+<br/>
+<br/>
+
+</br/>
+<% Link.all.each do |link| %>
+<%= link.url %>
+<%= link.title %>
+<br />
+<% end %>
